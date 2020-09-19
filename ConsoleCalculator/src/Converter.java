@@ -4,39 +4,39 @@ import java.util.HashMap;
 
 public class Converter {
 
-    private static final TreeMap<Integer, String> ARABIC = new TreeMap<>();
+    private static final TreeMap<Integer, String> ArNumber = new TreeMap<>();
     static {
-        ARABIC.put(100, "C");
-        ARABIC.put(90, "XC");
-        ARABIC.put(50, "L");
-        ARABIC.put(40, "XL");
-        ARABIC.put(10, "X");
-        ARABIC.put(9, "IX");
-        ARABIC.put(5, "V");
-        ARABIC.put(4, "IV");
-        ARABIC.put(1, "I");
+        ArNumber.put(100, "C");
+        ArNumber.put(90, "XC");
+        ArNumber.put(50, "L");
+        ArNumber.put(40, "XL");
+        ArNumber.put(10, "X");
+        ArNumber.put(9, "IX");
+        ArNumber.put(5, "V");
+        ArNumber.put(4, "IV");
+        ArNumber.put(1, "I");
     }
-    private static final Map<String, Integer> ROMAN = new HashMap<>();
+    private static final Map<String, Integer> RomeNumber = new HashMap<>();
     static {
-        ROMAN.put("I",1);
-        ROMAN.put("II",2);
-        ROMAN.put("III",3);
-        ROMAN.put("IV",4);
-        ROMAN.put("V",5);
-        ROMAN.put("VI",6);
-        ROMAN.put("VII",7);
-        ROMAN.put("VIII",8);
-        ROMAN.put("IX",9);
-        ROMAN.put("X",10);
+        RomeNumber.put("I",1);
+        RomeNumber.put("II",2);
+        RomeNumber.put("III",3);
+        RomeNumber.put("IV",4);
+        RomeNumber.put("V",5);
+        RomeNumber.put("VI",6);
+        RomeNumber.put("VII",7);
+        RomeNumber.put("VIII",8);
+        RomeNumber.put("IX",9);
+        RomeNumber.put("X",10);
     }
 
-    public String toRoman(int number) {
-        int n = ARABIC.floorKey(number);
-        return number == n ? ARABIC.get(number) : ARABIC.get(n) + toRoman(number - n);
+    public String toRomeNumber (int number) {
+        int n = ArNumber.floorKey(number);
+        return number == n ? ArNumber.get(number) : ArNumber.get(n) + toRomeNumber(number - n);
     }
 
-    public int toArabic(String number) {
-        return ROMAN.get(number);
+    public int toArNumber(String number) {
+        return RomeNumber.get(number);
     }
 
 }
